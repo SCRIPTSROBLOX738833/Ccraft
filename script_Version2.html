@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Admin System - CCRAFT SPACE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="script-page-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i> CCRAFT SPACE
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="scripts.html" class="nav-link active">Scripts</a>
+                <a href="publish.html" class="nav-link">Publish</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="script-container">
+        <!-- Header -->
+        <div class="script-header">
+            <div class="script-header-content">
+                <h1 class="script-page-title">Advanced Admin System</h1>
+                <div class="script-meta">
+                    <div class="creator-info">
+                        <img src="https://via.placeholder.com/50" alt="Creator" class="creator-avatar-large">
+                        <div>
+                            <p class="creator-username">by TechMaster</p>
+                            <p class="publish-date">Published 3 days ago</p>
+                        </div>
+                    </div>
+                    <div class="script-badges">
+                        <span class="badge featured"><i class="fas fa-star"></i> Featured</span>
+                        <span class="badge category">Game Scripts</span>
+                    </div>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/400x200" alt="Script Preview" class="script-preview-image">
+        </div>
+
+        <div class="script-content">
+            <!-- Main Content -->
+            <div class="script-main">
+                <!-- Description -->
+                <section class="script-section">
+                    <h2>Description</h2>
+                    <p>This comprehensive admin script provides a complete admin panel system for Roblox games. It includes user permissions, moderation tools, command parsing, and a beautiful GUI interface.</p>
+                    <h3>Key Features:</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Full-featured admin panel with GUI</li>
+                        <li><i class="fas fa-check"></i> Role-based permission system</li>
+                        <li><i class="fas fa-check"></i> Player moderation tools (kick, ban, mute)</li>
+                        <li><i class="fas fa-check"></i> Custom command parsing</li>
+                        <li><i class="fas fa-check"></i> Datastore integration for bans</li>
+                        <li><i class="fas fa-check"></i> Logging and audit trail</li>
+                        <li><i class="fas fa-check"></i> Easy configuration</li>
+                    </ul>
+                </section>
+
+                <!-- Installation -->
+                <section class="script-section">
+                    <h2>Installation</h2>
+                    <ol class="installation-steps">
+                        <li>Copy the script code below</li>
+                        <li>In Roblox Studio, go to ServerScriptService</li>
+                        <li>Insert a new Script</li>
+                        <li>Paste the code and save</li>
+                        <li>Configure admin IDs at the top of the script</li>
+                        <li>Test in a game or server</li>
+                    </ol>
+                </section>
+
+                <!-- Requirements -->
+                <section class="script-section">
+                    <h2>Requirements</h2>
+                    <div class="requirements-box">
+                        <p><strong>Roblox Studio Version:</strong> Latest (1.618+)</p>
+                        <p><strong>Script Type:</strong> Server Script</p>
+                        <p><strong>Dependencies:</strong> Datastore API</p>
+                        <p><strong>Permissions:</strong> Admin access to game</p>
+                    </div>
+                </section>
+
+                <!-- Code Section -->
+                <section class="script-section">
+                    <div class="code-header">
+                        <h2>Source Code</h2>
+                        <button class="btn btn-copy" onclick="copyCode()">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                    </div>
+                    <pre><code id="codeBlock" class="language-lua">-- Advanced Admin System
+-- Made by TechMaster for CCRAFT SPACE
+
+local ADMIN_IDS = {
+    123456789,  -- Your user ID
+    987654321,  -- Friend's user ID
+}
+
+local admins = {}
+local bannedPlayers = {}
+
+-- Check if player is admin
+local function isAdmin(player)
+    for _, id in ipairs(ADMIN_IDS) do
+        if player.UserId == id then
+            return true
+        end
+    end
+    return false
+end
+
+-- Admin panel GUI
+local function createAdminGui(player)
+    local playerGui = player:WaitForChild("PlayerGui")
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "AdminGui"
+    screenGui.ResetOnSpawn = false
+    screenGui.Parent = playerGui
+    
+    -- Add your GUI elements here
+    local frame = Instance.new("Frame")
+    frame.Name = "AdminPanel"
+    frame.Size = UDim2.new(0, 300, 0, 400)
+    frame.Position = UDim2.new(1, -320, 0, 20)
+    frame.BackgroundColor3 = Color3.fromRGB(15, 15, 35)
+    frame.BorderColor3 = Color3.fromRGB(74, 123, 255)
+    frame.BorderSizePixel = 2
+    frame.Parent = screenGui
+end
+
+-- Player join event
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(player)
+    if isAdmin(player) then
+        admins[player.UserId] = true
+        createAdminGui(player)
+        print(player.Name .. " joined as admin!")
+    end
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    admins[player.UserId] = nil
+end)
+
+print("Admin System loaded successfully!")</code></pre>
+                </section>
+
+                <!-- Comments Section -->
+                <section class="script-section comments-section">
+                    <h2>Comments <span class="comment-count">(24)</span></h2>
+                    
+                    <!-- Add Comment -->
+                    <div class="add-comment">
+                        <img src="https://via.placeholder.com/40" alt="Your Avatar" class="comment-avatar">
+                        <div class="comment-input-wrapper">
+                            <textarea placeholder="Share your thoughts, ask questions, or report issues..." class="comment-input"></textarea>
+                            <button class="btn btn-primary" style="align-self: flex-end; margin-top: 0.5rem;">Post Comment</button>
+                        </div>
+                    </div>
+
+                    <!-- Comments List -->
+                    <div class="comments-list">
+                        <div class="comment-item">
+                            <img src="https://via.placeholder.com/40" alt="User" class="comment-avatar">
+                            <div class="comment-body">
+                                <div class="comment-header">
+                                    <strong>ScriptUser123</strong>
+                                    <span class="comment-date">2 hours ago</span>
+                                </div>
+                                <p class="comment-text">This script is amazing! Works perfectly in my game. Thanks for sharing!</p>
+                                <div class="comment-actions">
+                                    <button class="comment-action-btn"><i class="fas fa-thumbs-up"></i> Like</button>
+                                    <button class="comment-action-btn"><i class="fas fa-reply"></i> Reply</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <img src="https://via.placeholder.com/40" alt="User" class="comment-avatar">
+                            <div class="comment-body">
+                                <div class="comment-header">
+                                    <strong>RobloxDev42</strong>
+                                    <span class="comment-date">5 hours ago</span>
+                                </div>
+                                <p class="comment-text">Quick question: how do I add custom commands to this system?</p>
+                                <div class="comment-actions">
+                                    <button class="comment-action-btn"><i class="fas fa-thumbs-up"></i> Like</button>
+                                    <button class="comment-action-btn"><i class="fas fa-reply"></i> Reply</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <img src="https://via.placeholder.com/40" alt="User" class="comment-avatar">
+                            <div class="comment-body">
+                                <div class="comment-header">
+                                    <strong>CodeMaster</strong>
+                                    <span class="comment-date">1 day ago</span>
+                                </div>
+                                <p class="comment-text">Would be even better with anti-exploit measures, but overall solid work!</p>
+                                <div class="comment-actions">
+                                    <button class="comment-action-btn"><i class="fas fa-thumbs-up"></i> Like (5)</button>
+                                    <button class="comment-action-btn"><i class="fas fa-reply"></i> Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="script-sidebar">
+                <!-- Stats Card -->
+                <div class="sidebar-card">
+                    <h3>Statistics</h3>
+                    <div class="stat-item">
+                        <div class="stat-label">Views</div>
+                        <div class="stat-value">8,542</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Likes</div>
+                        <div class="stat-value">1,234</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Downloads</div>
+                        <div class="stat-value">2,156</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Last Updated</div>
+                        <div class="stat-value">3 days ago</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="sidebar-card">
+                    <button class="btn btn-primary btn-block">
+                        <i class="fas fa-copy"></i> Copy Script
+                    </button>
+                    <button class="btn btn-secondary btn-block" style="margin-top: 1rem;">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                </div>
+
+                <!-- Like/Share -->
+                <div class="sidebar-card">
+                    <div class="action-buttons">
+                        <button class="action-btn like-btn" onclick="toggleLike(this)">
+                            <i class="fas fa-heart"></i>
+                            <span>Like</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-flag"></i>
+                            <span>Report</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Creator Info -->
+                <div class="sidebar-card">
+                    <h3>Creator</h3>
+                    <img src="https://via.placeholder.com/80" alt="Creator" class="creator-

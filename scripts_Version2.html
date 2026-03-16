@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Scripts - CCRAFT SPACE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="scripts-page-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i> CCRAFT SPACE
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="scripts.html" class="nav-link active">Scripts</a>
+                <a href="publish.html" class="nav-link">Publish</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scripts-container">
+        <div class="scripts-header">
+            <h1>Browse Scripts</h1>
+            <p>Explore thousands of Roblox scripts from our community</p>
+        </div>
+
+        <div class="scripts-wrapper">
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <div class="filter-group">
+                    <h3>Categories</h3>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" checked>
+                        <span>All Categories</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Game Scripts</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Admin Scripts</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Effects & Tools</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Data & Systems</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>AI & NPCs</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Utilities</span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Sort By</h3>
+                    <select class="filter-select">
+                        <option>Latest</option>
+                        <option>Most Popular</option>
+                        <option>Most Liked</option>
+                        <option>Trending</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Difficulty</h3>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Beginner</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Intermediate</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Advanced</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox">
+                        <span>Expert</span>
+                    </label>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Apply Filters</button>
+                <button class="btn btn-outline" style="width: 100%; margin-top: 0.5rem;">Reset</button>
+            </aside>
+
+            <!-- Scripts Grid -->
+            <div class="scripts-main">
+                <div class="scripts-search">
+                    <input type="text" placeholder="Search scripts..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="scripts-count">
+                    Found 1,247 scripts
+                </div>
+
+                <div class="scripts-grid-main">
+                    <div class="script-card">
+                        <img src="https://via.placeholder.com/250x150" alt="Script" class="script-thumbnail">
+                        <div class="script-card-body">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <h3><a href="script.html">Advanced Admin System</a></h3>
+                            <p class="script-creator">by TechMaster</p>
+                            <p class="script-desc">Comprehensive admin script with permissions and moderation.</p>
+                            <div class="script-card-stats">
+                                <span><i class="fas fa-heart"></i> 1.2K</span>
+                                <span><i class="fas fa-eye"></i> 8.5K</span>
+                                <span><i class="fas fa-comment"></i> 45</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-card">
+                        <img src="https://via.placeholder.com/250x150" alt="Script" class="script-thumbnail">
+                        <div class="script-card-body">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <h3><a href="script.html">Player Data System</a></h3>
+                            <p class="script-creator">by DataWizard</p>
+                            <p class="script-desc">Reliable player data saving with cloud integration.</p>
+                            <div class="script-card-stats">
+                                <span><i class="fas fa-heart"></i> 856</span>
+                                <span><i class="fas fa-eye"></i> 6.2K</span>
+                                <span><i class="fas fa-comment"></i> 32</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-card">
+                        <img src="https://via.placeholder.com/250x150" alt="Script" class="script-thumbnail">
+                        <div class="script-card-body">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <h3><a href="script.html">Particle Effects Pack</a></h3>
+                            <p class="script-creator">by EffectsPro</p>
+                            <p class="script-desc">50+ ready-to-use particle effects for games.</p>
+                            <div class="script-card-stats">
+                                <span><i class="fas fa-heart"></i> 2.1K</span>
+                                <span><i class="fas fa-eye"></i> 12.3K</span>
+                                <span><i class="fas fa-comment"></i> 67</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-card">
+                        <img src="https://via.placeholder.com/250x150" alt="Script" class="script-thumbnail">
+                        <div class="script-card-body">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <h3><a href="script.html">Combat System Framework</a></h3>
+                            <p class="script-creator">by CombatDev</p>
+                            <p class="script-desc">Complete combat mechanics with damage system.</p>
+                            <div class="script-card-stats">
+                                <span><i class="fas fa-heart"></i> 934</span>
+                                <span><i class="fas fa-eye"></i> 5.8K</span>
+                                <span><i class="fas fa-comment"></i> 28</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-card">
+                        <img src="https://via.placeholder.com/250x150" alt="Script" class="script-thumbnail">
+                        <div class="script-card-body">
+                            <span class="difficulty-badge advanced">Advanced</span>
+                            <h3><a href="script.html">Inventory Management UI</a></h3>
+                            <p class="script-creator">by UIGenius</p>
+                            <p class="script-desc">Modern inventory with drag-and-drop functionality.</p>
+                            <div class="script-card-stats">
+                                <span><i class="fas fa-heart"></i> 1.5K</span>
+                                <span><i class="fas fa-eye"></i> 9.2K</span>
+                                <span><i class="fas fa-comment"></i> 52</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-card">
+                        <img src="https://via.placeholder.com/250x150" alt="Script" class="script-thumbnail">
+                        <div class="script-card-body">
+                            <span class="difficulty-badge advanced">Advanced</span>
+                            <h3><a href="script.html">Economy System v2.0</a></h3>
+                            <p class="script-creator">by EconomyMaster</p>
+                            <p class="script-desc">Advanced economy with shops and trading.</p>
+                            <div class="script-card-stats">
+                                <span><i class="fas fa-heart"></i> 2.3K</span>
+                                <span><i class="fas fa-eye"></i> 15.6K</span>
+                                <span><i class="fas fa-comment"></i> 78</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn">&laquo; Prev</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn">Next &raquo;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>CCRAFT SPACE</h4>
+                <p>Share, learn, and grow with the Roblox development community.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CCRAFT SPACE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

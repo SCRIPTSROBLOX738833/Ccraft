@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish Script - CCRAFT SPACE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="publish-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i> CCRAFT SPACE
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="scripts.html" class="nav-link">Scripts</a>
+                <a href="publish.html" class="nav-link active">Publish</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Publish Container -->
+    <div class="publish-container">
+        <h1 class="publish-title">Share Your Script</h1>
+        <p class="publish-subtitle">Help the community by sharing your amazing Roblox scripts</p>
+
+        <form class="publish-form" id="publishForm">
+            <!-- Title Section -->
+            <div class="form-group">
+                <label for="scriptTitle">Script Title *</label>
+                <input type="text" id="scriptTitle" placeholder="Enter an engaging title for your script" required>
+                <p class="form-help">Be descriptive and clear about what your script does</p>
+            </div>
+
+            <!-- Description Section -->
+            <div class="form-group">
+                <label for="scriptDesc">Description *</label>
+                <textarea id="scriptDesc" rows="5" placeholder="Describe your script features, requirements, and usage instructions..." required></textarea>
+                <p class="form-help">Include key features, installation steps, and any dependencies</p>
+            </div>
+
+            <!-- Code Box with Syntax Highlighting -->
+            <div class="form-group">
+                <label for="scriptCode">Script Code *</label>
+                <div class="code-editor">
+                    <textarea id="scriptCode" class="code-input" placeholder="-- Paste your Lua script code here&#10;&#10;print('Hello World!')" required></textarea>
+                    <pre><code id="codeHighlight" class="language-lua">-- Paste your Lua script code here
+
+print('Hello World!')</code></pre>
+                </div>
+                <p class="form-help">Lua syntax highlighting is automatic</p>
+            </div>
+
+            <!-- Category Selection -->
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" required>
+                    <option value="">Select a category</option>
+                    <option value="game-scripts">Game Scripts</option>
+                    <option value="admin">Admin Scripts</option>
+                    <option value="effects">Effects & Tools</option>
+                    <option value="data">Data & Systems</option>
+                    <option value="ai">AI & NPCs</option>
+                    <option value="utilities">Utilities</option>
+                </select>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="form-group">
+                <label for="scriptImage">Script Preview Image</label>
+                <div class="image-upload">
+                    <input type="file" id="scriptImage" accept="image/*">
+                    <div class="upload-placeholder">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload or drag and drop</p>
+                        <p class="text-small">PNG, JPG up to 5MB</p>
+                    </div>
+                    <img id="imagePreview" class="image-preview" style="display: none;">
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group">
+                <label for="tags">Tags (comma-separated)</label>
+                <input type="text" id="tags" placeholder="e.g., admin, roblox, script, free">
+                <p class="form-help">Add up to 5 tags to help people find your script</p>
+            </div>
+
+            <!-- Visibility -->
+            <div class="form-group">
+                <label>Visibility *</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="visibility" value="public" checked>
+                        <span>Public - Everyone can see and use this script</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="visibility" value="unlisted">
+                        <span>Unlisted - Only with direct link</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Terms -->
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="terms" required>
+                    <span>I agree to the Terms of Service and Content Guidelines *</span>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Publish Script</button>
+                <button type="reset" class="btn btn-outline">Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>CCRAFT SPACE</h4>
+                <p>Share, learn, and grow with the Roblox development community.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Browse Scripts</a></li>
+                    <li><a href="#">Publish Script</a></li>
+                    <li><a href="#">Guidelines</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CCRAFT SPACE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+    <script src="publish.js"></script>
+</body>
+</html>
